@@ -15,15 +15,23 @@ h1 {
 .button-div {
   display: flex;
   justify-content: center;
-  margin: 5px;
+  margin: .5rem;
 }
 
-#test-button {
+#get-all-players-button {
   border: none;
   border-radius: 7px;
   background: cadetblue;
   color: white;
-  padding: 5px 10px;
+  padding: .5rem 1rem;
   text-align: center;
   font-size: 20px;
+}
+
+#get-all-players-button:hover {
+  background-color: rgb(64, 107, 108);
+}
+
+.player-div {
+  padding: .5rem;
 }
