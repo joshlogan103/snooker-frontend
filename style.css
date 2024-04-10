@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1 {
+  font-family: Helvetica, sans-serif;
+  font-weight: 100;
+  text-align: center;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+
+#test-button {
+  border: none;
+  border-radius: 7px;
+  background: cadetblue;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 20px;
+}
