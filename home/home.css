@@ -44,7 +44,7 @@ a {
   right: 2rem;
 }
 
-.button-div {
+#get-all-players-button-container {
   display: flex;
   justify-content: center;
   margin: .5rem;

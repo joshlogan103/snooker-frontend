@@ -11,10 +11,28 @@
   <script defer src="admin.js"></script>
 </head>
 <body>
-  <h1>Maximum Break</h1>
-  <div class="button-div">
-    <button type="button" id="get-all-players-button">Show Players</button>
-  </div>
-  <div id="players-container"></div>
+  <header>
+    <div id="mb-icon"><a id="mb-icon-link" href="../home/home.html">MB</a></div>
+    <h1>Maximum Break</h1>
+  </header>
+  <main>
+    <div id="create-player-form-container">
+      <div id="create-player-form-title">Create Player</div>
+      <form id="create-player-form">
+        <label for="id">First Name</label>
+        <input id="first-name-player" type="text">
+        <label for="id">Last Name</label>
+        <input id="last-name-player" type="text">
+        <label for="id">Age</label>
+        <input id="age-player" type="text">
+        <label for="id">Nationality</label>
+        <input id="nationality-player" type="text">
+        <label for="id">World Ranking</label>
+        <input id="world-ranking-player" type="text">
+      </form>
+      <button type="button" id="create-player-button">Submit</button>
+    </div>
+    <div id="players-container"></div>
+  </main>
 </body>
 </html>
