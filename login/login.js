@@ -10,17 +10,17 @@ const loginButton = document.getElementById('login-button')
 
 // Set event listeners
 
-loginButton.addEventListener('click', signin)
+loginButton.addEventListener('click', login)
 
-// Allow user signin
+// Allow user login
 
-function signin(e) {
+function login(e) {
   e.preventDefault()
   const userData = {
     username: usernameField.value,
     password: passwordField.value
   }
-  fetch(`${databaseURL}/auth/signin`, {
+  fetch(`${databaseURL}/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(userData) })

@@ -78,6 +78,9 @@ main {
   margin: 0 4rem .8rem;
 }
 
+#create-player-button:hover {
+  background-color: rgb(220, 220, 220);
+}
 
 
 
