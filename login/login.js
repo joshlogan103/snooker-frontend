@@ -29,7 +29,7 @@ function signin(e) {
       if (data.accessToken) {
         const accessToken = data.accessToken 
         localStorage.setItem('jwtToken', accessToken)
-        window.location.href = '../user/user.html'
+        window.location.href = '../index.html'
       }
     })
 }

@@ -47,14 +47,30 @@ a {
   text-decoration: none;
 }
 
-#signin-link {
-  position: absolute;
-  right: 4rem;
+button {
+  border: none;
+  background-color: rgb(4, 7, 50);
+  color: white;
+  font-family: Cantarell, Helvetica, sans-serif;
+  font-size: 1rem;
 }
 
-#signup-link {
+#login-button {
+  position: absolute;
+  right: 4rem;
+  display: none;
+}
+
+#signup-button {
   position: absolute;
   right: 10rem;
+  display: none;
+}
+
+#logout-button {
+  position: absolute;
+  right: 4rem;
+  display: none;
 }
 
 main {

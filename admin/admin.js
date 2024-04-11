@@ -17,7 +17,7 @@ const worldRankingPlayerInput = document.getElementById('world-ranking-player')
 document.addEventListener('DOMContentLoaded', () => {
   const accessToken = getAccessToken()
   if (!accessToken) {
-    window.location.href='../signin/signin.html'
+    window.location.href='../login/login.html'
   } else {
     fetch(`${databaseURL}/auth/validateAdmin`, {
       method: 'POST',
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(res => res.json())
       .then(data => {
         if (data !== true) {
-          window.location.href='../signin/signin.html'
+          window.location.href='../login/login.html'
         } else {
           mainEl.style.display = 'block'
         }
