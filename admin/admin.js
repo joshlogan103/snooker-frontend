@@ -11,6 +11,15 @@ const agePlayerInput = document.getElementById('age-player')
 const nationalityPlayerInput = document.getElementById('nationality-player')
 const worldRankingPlayerInput = document.getElementById('world-ranking-player')
 
+// Protect this page to only logged in admins
+
+document.addEventListener('DOMContentLoaded', () => {
+  const accessToken = getAccessToken()
+  if (!accessToken) {
+    window.location.href='../signin/signin.html'
+  }
+})
+
 // Add event listeners
 
 createPlayerSubmitButton.addEventListener('click', createPlayer)
