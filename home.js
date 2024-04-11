@@ -6,10 +6,12 @@ const databaseURL = 'http://localhost:3005'
 
 const showPlayersButton = document.getElementById('get-all-players-button')
 const playersDiv = document.getElementById('players-container')
+const adminViewButton = document.getElementById('admin-view-button')
 
 // Set event listeners
 
 showPlayersButton.addEventListener('click', getAllPlayers)
+adminViewButton.addEventListener('click', accessAdminPortal)
 
 
 // Retrieve JWT token from local storage
@@ -46,4 +48,8 @@ function getAllPlayers() {
         playersDiv.appendChild(newPlayerUl)
       })
     })
+}
+
+function accessAdminPortal() {
+  window.location.href='./admin/admin.html'
 }

@@ -26,9 +26,10 @@ function signin(e) {
     body: JSON.stringify(userData) })
     .then(res => res.json())
     .then(data => {
-      const accessToken = data.accessToken
-      localStorage.setItem('jwtToken', accessToken)
+      if (data.accessToken) {
+        const accessToken = data.accessToken 
+        localStorage.setItem('jwtToken', accessToken)
+        window.location.href = '../user/user.html'
+      }
     })
-  usernameField.value = ''
-  passwordField.value = ''
 }

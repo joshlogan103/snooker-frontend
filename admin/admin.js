@@ -4,6 +4,7 @@ const databaseURL = 'http://localhost:3005'
 
 // Cache necessary elements
 
+const mainEl = document.querySelector('main')
 const createPlayerSubmitButton = document.getElementById('create-player-button') 
 const firstNamePlayerInput = document.getElementById('first-name-player')
 const lastNamePlayerInput = document.getElementById('last-name-player')
@@ -17,6 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const accessToken = getAccessToken()
   if (!accessToken) {
     window.location.href='../signin/signin.html'
+  } else {
+    fetch(`${databaseURL}/auth/validateAdmin`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json',
+      'Authorization': `Bearer ${getAccessToken()}`},
+      body: '' })
+      .then(res => res.json())
+      .then(data => {
+        if (data !== true) {
+          window.location.href='../signin/signin.html'
+        } else {
+          mainEl.style.display = 'block'
+        }
+      })
   }
 })
 

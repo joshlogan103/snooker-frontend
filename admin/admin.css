@@ -43,6 +43,10 @@ h1 {
   font-size: 1.8rem;
 }
 
+main {
+  display: none;
+}
+
 #create-player-form-container {
   background-color: rgb(16, 134, 132);
   width: 12rem;
