@@ -47,23 +47,12 @@ a {
   text-decoration: none;
 }
 
-#signin-link {
-  position: absolute;
-  right: 10rem;
+#signup-form {
+  text-align: center;
+  margin: 3rem 0 0 0;
 }
 
-#signup-link {
-  position: absolute;
-  right: 4rem;
-}
-
-#get-all-players-button-container {
-  display: flex;
-  justify-content: center;
-  margin: .5rem;
-}
-
-#get-all-players-button {
+#signup-button {
   border: none;
   border-radius: 7px;
   background: cadetblue;
@@ -71,17 +60,9 @@ a {
   padding: .5rem 1rem;
   margin: 2rem auto;
   text-align: center;
-  font-size: 20px;
+  font-size: 1rem;
 }
 
-#get-all-players-button:hover {
+#signup-button:hover {
   background-color: rgb(64, 107, 108);
-}
-
-.player-ul {
-  margin: 2rem;
-}
-
-#admin-view-link {
-  font-size: 2rem;
 }

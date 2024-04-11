@@ -6,14 +6,17 @@ const databaseURL = 'http://localhost:3005'
 
 const showPlayersButton = document.getElementById('get-all-players-button')
 const playersDiv = document.getElementById('players-container')
-const usernameField = document.getElementById('username-login')
-const passwordField = document.getElementById('password-login')
-const loginButton = document.getElementById('login-button')
 
 // Set event listeners
 
 showPlayersButton.addEventListener('click', getAllPlayers)
-loginButton.addEventListener('click', signin)
+
+
+// Retrieve JWT token from local storage
+
+function getAccessToken() {
+  return localStorage.getItem('jwtToken')
+}
 
 // Functions
 
@@ -23,7 +26,7 @@ function getAllPlayers() {
   playersDiv.innerHTML = '';
   fetch(`${databaseURL}/players`, {
     method: 'GET',
-    credentials: 'include'
+    headers:  {'Authorization': `Bearer ${getAccessToken()}`}
   })
     .then(res => res.json())
     .then(data => {
@@ -43,22 +46,4 @@ function getAllPlayers() {
         playersDiv.appendChild(newPlayerUl)
       })
     })
-}
-
-// Allow user signin
-
-function signin(e) {
-  e.preventDefault()
-  const userData = {
-    username: usernameField.value,
-    password: passwordField.value
-  }
-  fetch(`${databaseURL}/auth/signin`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(userData) })
-    .then(res => res.json())
-    .then(data => console.log(data))
-  usernameField.value = ''
-  passwordField.value = ''
 }

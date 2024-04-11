@@ -8,24 +8,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="home.css" type="text/css">
-  <script defer src="home.js"></script>
+  <link rel="stylesheet" href="signup.css" type="text/css">
+  <script defer src="signup.js"></script>
 </head>
 <body>
   <header>
     <div id="mb-icon"><a id="mb-icon-link" href="../home/home.html">MB</a></div>
     <h1>Maximum Break</h1>
-    <a id="signin-link" href="../signin/signin.html">Log In</a>
-    <a id="signup-link" href="../signup/signup.html">Sign Up</a>
   </header>
   <main>
-    <div id="get-all-players-button-container">
-      <button type="button" id="get-all-players-button">Show Players</button>
-    </div>
-    <div id="players-container"></div>
+    <form id="signup-form">
+      <label for="username-signup">username</label>
+      <input id="username-signup" type="text">
+      <label for="password-signup">password</label>
+      <input id="password-signup" type="text">
+      <button id="signup-button" type="button">Sign Up</button>
+    </form>
   </main>
-  <footer>
-    <a id="admin-view-link" href="../admin/admin.html">Admin View</a>
-  </footer>
+  <footer></footer>
 </body>
 </html>

@@ -15,6 +15,12 @@ const worldRankingPlayerInput = document.getElementById('world-ranking-player')
 
 createPlayerSubmitButton.addEventListener('click', createPlayer)
 
+// Retrieve JWT token from local storage
+
+function getAccessToken() {
+  return localStorage.getItem('jwtToken')
+}
+
 // Functions
 
 // Create a player
@@ -30,7 +36,8 @@ function createPlayer(e) {
   }
   fetch(`${databaseURL}/players`,{
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json',
+    'Authorization': `Bearer ${getAccessToken()}`},
     body: JSON.stringify(newPlayer) })
     .then(res => res.json())
     .then(data => {
