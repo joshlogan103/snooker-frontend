@@ -26,8 +26,8 @@ function signup(e) {
     body: JSON.stringify(userData) })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+      if (data.message) {
+        window.location.href = '../login/login.html'
+      }
     })
-  usernameField.value = ''
-  passwordField.value = ''
 }

@@ -47,9 +47,15 @@ a {
   text-decoration: none;
 }
 
+#login-form-title {
+  text-align: center;
+  margin: 4rem 0 0 0;
+  font-size: 1.25rem;
+}
+
 #login-form {
   text-align: center;
-  margin: 3rem 0 0 0;
+  margin: 1rem 0 0 0;
 }
 
 #login-button {
@@ -65,4 +71,8 @@ a {
 
 #login-button:hover {
   background-color: rgb(64, 107, 108);
+}
+
+input {
+  margin-right: 1rem;
 }
