@@ -8,7 +8,34 @@ button {
 }
 
 main {
-  height: 100vh;
+  min-height: 100vh;
+}
+
+#find-a-player-container {
+  text-align: center;
+  margin: 2rem;
+}
+
+#find-a-player-title {
+  font-size: 1.25rem;
+  margin: .5rem;
+}
+
+#submit-player-search-button {
+  border: none;
+  border-radius: 7px;
+  color: white;
+  background-color: cadetblue;
+  padding: .4rem .8rem;
+  font-size: 1rem;
+}
+
+#submit-player-search-button:hover {
+  background-color: rgb(64, 107, 108);
+}
+
+#player-name-input {
+  height: 1.25rem;
 }
 
 #get-all-players-button-container {
@@ -20,7 +47,7 @@ main {
 #get-all-players-button {
   border: none;
   border-radius: 7px;
-  background: cadetblue;
+  background-color: cadetblue;
   color: white;
   padding: .5rem 1rem;
   margin: 2rem auto;
@@ -32,8 +59,23 @@ main {
   background-color: rgb(64, 107, 108);
 }
 
+#player-lists-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.player-container {
+  width: 33vw;
+}
+
 .player-ul {
   margin: 2rem;
+  width: 15rem;
+  border: solid 1px black;
+}
+
+.player-field-li {
+  list-style-type: none;
 }
 
 #admin-view-link {

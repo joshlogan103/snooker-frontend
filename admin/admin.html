@@ -23,23 +23,48 @@
     <button id="logout-button" class="navbar-button" type="button">Log Out</button>
   </header>
   <main>
-    <div id="create-player-form-container">
-      <div id="create-player-form-title">Create Player</div>
-      <form id="create-player-form">
-        <label for="first-name-player">First Name</label>
-        <input id="first-name-player" type="text">
-        <label for="last-name-player">Last Name</label>
-        <input id="last-name-player" type="text">
-        <label for="age-player">Age</label>
-        <input id="age-player" type="text">
-        <label for="nationality-player">Nationality</label>
-        <input id="nationality-player" type="text">
-        <label for="world-ranking-player">World Ranking</label>
-        <input id="world-ranking-player" type="text">
-      </form>
-      <button id="create-player-button" type="button">Submit</button>
+    <div id="create-docs-container">
+      <div id= "create-player-form-container" class="creation-form-container">
+        <div class="creation-form-title">Create Player</div>
+        <form id="create-player-form" class="creation-form">
+          <label for="first-name-player">First Name</label>
+          <input id="first-name-player" type="text">
+          <label for="last-name-player">Last Name</label>
+          <input id="last-name-player" type="text">
+          <label for="age-player">Age</label>
+          <input id="age-player" type="text">
+          <label for="nationality-player">Nationality</label>
+          <input id="nationality-player" type="text">
+          <label for="world-ranking-player">World Ranking</label>
+          <input id="world-ranking-player" type="text">
+        </form>
+        <button id="create-player-button" class="creation-button" type="button">Submit</button>
+      </div>
+      <div class="creation-form-container">
+        <div id="create-tournament-form-container" class="creation-form-title">Create Tournament</div>
+        <form id="create-tournament-form" class="creation-form">
+          <label for="name-tournament">Name</label>
+          <input id="name-tournament" type="text">
+          <label for="prize-money-tournament">Prize Money</label>
+          <input id="prize-money-tournament" type="text">
+          <label for="start-date-tournament">Start Date</label>
+          <input id="start-date-tournament" type="text">
+          <label for="end-date-tournament">End Date</label>
+          <input id="end-date-tournament" type="text">
+          <label for="country-tournament">Country</label>
+          <input id="country-tournament" type="text">
+          <label for="city-tournament">City</label>
+          <input id="city-tournament" type="text">
+          <label for="venue-name-tournament">Venue Name</label>
+          <input id="venue-name-tournament" type="text">
+          <label for="leaderboard-positions-tournament">Leaderboard Positions</label>
+          <input id="leaderboard-positions-tournament" type="text">
+          <label for="prize-breakdown-tournament">Prize Breakdown</label>
+          <input id="prize-breakdown-tournament" type="text">
+        </form>
+        <button id="create-tournament-button" class="creation-button" type="button">Submit</button>
+      </div>
     </div>
-    <div id="players-container"></div>
   </main>
   <footer>
     <div id="copyright">Copyright Maximum Break, 2024</div>

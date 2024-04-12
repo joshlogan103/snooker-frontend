@@ -9,32 +9,49 @@ button {
 }
 
 main {
-  height: 100vh;
+  min-height: 100vh;
   display: none;
 }
 
-#create-player-form-container {
+#create-docs-container {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+}
+
+.creation-form-container {
   background-color: rgb(16, 134, 132);
-  width: 12rem;
   border-radius: 4px;
   margin: 1rem;
   color: white;
 }
 
-#create-player-form-title {
+#create-player-form-container {
+  width: 12rem;
+}
+
+#create-tournament-form-container {
+  width: 15rem;
+}
+
+.creation-form-title {
   text-align: center;
   padding: .5rem 0 0 0;
   font-size: 1.25rem;
 }
 
-#create-player-form {
+.creation-form {
   display: flex;
   flex-direction: column;
   width: 10rem;
   padding: 1rem;
 }
 
-#create-player-button {
+#create-tournament-form {
+  width: 12rem;
+}
+
+.creation-button {
   text-align: center;
   border: none;
   border-radius: 7px;
@@ -44,7 +61,7 @@ main {
   margin: 0 4rem .8rem;
 }
 
-#create-player-button:hover {
+.creation-button:hover {
   background-color: rgb(220, 220, 220);
 }
 

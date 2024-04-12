@@ -24,10 +24,22 @@
     
   </header>
   <main>
-    <div id="get-all-players-button-container">
-      <button type="button" id="get-all-players-button">Show Players</button>
+    <div id="find-a-player-container">
+      <div id="find-a-player-title">Find a Player</div>
+      <form id="find-a-player-form">
+        <input id="player-name-input" type="text">
+        <button id="submit-player-search-button">Search</button>
+      </form>
+      <div id="searched-player-container"></div>
     </div>
-    <div id="players-container"></div>
+    <div id="get-all-players-button-container">
+      <button type="button" id="get-all-players-button">Show All Players</button>
+    </div>
+    <div id="player-lists-container">
+      <div id="players-container-1" class="player-container"></div>
+      <div id="players-container-2" class="player-container"></div>
+      <div id="players-container-3" class="player-container"></div>
+    </div>
   </main>
   <footer>
     <div id="copyright">Copyright Maximum Break, 2024</div>
