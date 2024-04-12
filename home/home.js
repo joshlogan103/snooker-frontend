@@ -7,13 +7,11 @@ const showPlayersButton = document.getElementById('get-all-players-button')
 const playersDiv1 = document.getElementById('players-container-1')
 const playersDiv2 = document.getElementById('players-container-2')
 const playersDiv3 = document.getElementById('players-container-3')
-const adminViewButton = document.getElementById('admin-view-button')
 
 // Set event listeners
 
 submitPlayerSearchButton.addEventListener('click', findPlayer)
 showPlayersButton.addEventListener('click', getAllPlayers)
-adminViewButton.addEventListener('click', accessAdminPortal)
 
 // Retrieve JWT token from local storage
 
@@ -81,9 +79,5 @@ function getAllPlayers() {
         }
       })
     })
-}
-
-function accessAdminPortal() {
-  window.location.href='./admin/admin.html'
 }
 

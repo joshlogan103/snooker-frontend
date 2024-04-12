@@ -20,11 +20,15 @@ main {
 }
 
 .creation-form-container {
-  background-color: rgb(16, 134, 132);
+  background-color: rgb(80, 138, 140);
   border-radius: 4px;
-  margin: 1rem;
+  margin: 2rem;
   color: white;
   width: 15rem;
+}
+
+#create-player-form-container {
+  height: 20.5rem;
 }
 
 .creation-form-title {

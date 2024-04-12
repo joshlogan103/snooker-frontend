@@ -63,3 +63,9 @@ a {
   right: 4rem;
   display: none;
 }
+
+#admin-view-button {
+  position: absolute;
+  right: 10rem;
+  display: none;
+}
