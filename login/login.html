@@ -9,12 +9,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="login.css" type="text/css">
+  <link rel="stylesheet" href="../navbar/navbar.css" type="text/css">
+  <link rel="stylesheet" href="../footer/footer.css" type="text/css">
+  <script defer src="../navbar/navbar.js"></script>
   <script defer src="login.js"></script>
 </head>
 <body>
   <header>
     <div id="mb-icon"><a id="mb-icon-link" href="../index.html">MB</a></div>
-    <h1>Maximum Break</h1>
+    <h1><a id="mb-title-link" href="../index.html">Maximum Break</a></h1>
+    <button id="signup-button" class="navbar-button" type="button">Sign Up</button>
+    <button id="login-button" class="navbar-button" type="button">Log In</button>
+    <button id="logout-button" class="navbar-button" type="button">Log Out</button>
   </header>
   <main>
     <div id="login-form-title">Log in to your account</div>
@@ -23,9 +29,11 @@
       <input id="username-login" type="text">
       <label for="password-login">Password</label>
       <input id="password-login" type="text">
-      <button id="login-button" type="button">Login</button>
+      <button id="submit-login-button" type="button">Login</button>
     </form>
   </main>
-  <footer></footer>
+  <footer>
+    <div id="copyright">Copyright Maximum Break, 2024</div>
+  </footer>
 </body>
 </html>

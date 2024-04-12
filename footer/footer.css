@@ -1,0 +1,22 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: .1rem;
+  background-color: rgb(4, 7, 50);
+  height: 7vh;
+}
+
+#copyright {
+  color: white;
+  font-size: .8rem;
+}
+
+#admin-view-button {
+  border: none;
+  background-color: rgb(4, 7, 50);
+  color: white;
+  font-family: Cantarell, Helvetica, sans-serif;
+  font-size: 1rem;
+}

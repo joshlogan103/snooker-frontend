@@ -1,7 +1,3 @@
-// API URL cache
-
-const databaseURL = 'http://localhost:3005'
-
 // Cache necessary elements
 
 const mainEl = document.querySelector('main')

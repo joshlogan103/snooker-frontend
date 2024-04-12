@@ -8,13 +8,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../navbar/navbar.css" type="text/css">
+  <link rel="stylesheet" href="../footer/footer.css" type="text/css">
   <link rel="stylesheet" href="signup.css" type="text/css">
+  <script defer src="../navbar/navbar.js"></script>
   <script defer src="signup.js"></script>
 </head>
 <body>
   <header>
     <div id="mb-icon"><a id="mb-icon-link" href="../index.html">MB</a></div>
-    <h1>Maximum Break</h1>
+    <h1><a id="mb-title-link" href="../index.html">Maximum Break</a></h1>
+    <button id="signup-button" class="navbar-button" type="button">Sign Up</button>
+    <button id="login-button" class="navbar-button" type="button">Log In</button>
+    <button id="logout-button" class="navbar-button" type="button">Log Out</button>
   </header>
   <main>
     <div id="signup-form-title">Create an Account</div>
@@ -24,9 +30,11 @@
       <input id="username-signup" type="text">
       <label for="password-signup">Password</label>
       <input id="password-signup" type="text">
-      <button id="signup-button" type="button">Sign Up</button>
+      <button id="submit-signup-button" type="button">Sign Up</button>
     </form>
   </main>
-  <footer></footer>
+  <footer>
+    <div id="copyright">Copyright Maximum Break, 2024</div>
+  </footer>
 </body>
 </html>

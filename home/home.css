@@ -11,23 +11,13 @@ main {
   height: 100vh;
 }
 
-#signup-form-title {
-  text-align: center;
-  margin: 4rem 0 0 0;
-  font-size: 1.25rem;
+#get-all-players-button-container {
+  display: flex;
+  justify-content: center;
+  margin: .5rem;
 }
 
-#signup-form-subtitle {
-  text-align: center;
-  font-size: 1rem;
-}
-
-#signup-form {
-  text-align: center;
-  margin: 1rem 0 0 0;
-}
-
-#submit-signup-button {
+#get-all-players-button {
   border: none;
   border-radius: 7px;
   background: cadetblue;
@@ -35,13 +25,17 @@ main {
   padding: .5rem 1rem;
   margin: 2rem auto;
   text-align: center;
-  font-size: 1rem;
+  font-size: 20px;
 }
 
-#submit-signup-button:hover {
+#get-all-players-button:hover {
   background-color: rgb(64, 107, 108);
 }
 
-input {
-  margin-right: 1rem;
+.player-ul {
+  margin: 2rem;
+}
+
+#admin-view-link {
+  font-size: 1rem;
 }

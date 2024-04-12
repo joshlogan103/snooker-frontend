@@ -1,16 +1,12 @@
-// API URL cache
-
-const databaseURL = 'http://localhost:3005'
-
 // Cache html elements
 
 const usernameField = document.getElementById('username-login')
 const passwordField = document.getElementById('password-login')
-const loginButton = document.getElementById('login-button')
+const submitLoginButton = document.getElementById('submit-login-button')
 
 // Set event listeners
 
-loginButton.addEventListener('click', login)
+submitLoginButton.addEventListener('click', login)
 
 // Allow user login
 

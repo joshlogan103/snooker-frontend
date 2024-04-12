@@ -1,16 +1,12 @@
-// API URL cache
-
-const databaseURL = 'http://localhost:3005'
-
 // Cache html elements
 
 const usernameField = document.getElementById('username-signup')
 const passwordField = document.getElementById('password-signup')
-const signupButton = document.getElementById('signup-button')
+const submitSignupButton = document.getElementById('submit-signup-button')
 
 // Set event listeners
 
-signupButton.addEventListener('click', signup)
+submitSignupButton.addEventListener('click', signup)
 
 // Allow user signin
 
@@ -31,3 +27,9 @@ function signup(e) {
       }
     })
 }
+
+
+
+
+
+
