@@ -28,7 +28,7 @@ main {
 }
 
 #create-player-form-container {
-  height: 20.5rem;
+  height: 20.3rem;
 }
 
 .creation-form-title {
@@ -56,6 +56,16 @@ main {
 
 .creation-button:hover {
   background-color: rgb(220, 220, 220);
+}
+
+#update-docs-container {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+}
+
+#update-player-form-container {
+  height: 23rem;
 }
 
 

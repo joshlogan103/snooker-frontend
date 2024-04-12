@@ -64,5 +64,5 @@ function logout() {
 }
 
 function accessAdminPortal() {
-  window.location.href='./admin/admin.html'
+  window.location.href='../admin/admin.html'
 }
