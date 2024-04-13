@@ -1,7 +1,7 @@
 // API URL cache
 
-const databaseURL = 'http://localhost:3005'
-//const databaseURL = 'https://maximum-break-api-943feb008688.herokuapp.com'
+//const databaseURL = 'http://localhost:3005'
+const databaseURL = 'https://maximum-break-api-943feb008688.herokuapp.com'
 
 // Cache html elements
 
