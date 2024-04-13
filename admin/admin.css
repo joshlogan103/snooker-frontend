@@ -13,10 +13,17 @@ main {
   display: none;
 }
 
-#create-docs-container {
+.category-titles {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.action-docs-container {
   display: flex;
   flex-direction: row;
-  padding: 2rem;
+  padding: 0 2rem;
+  justify-content: center;
 }
 
 .creation-form-container {
@@ -25,10 +32,6 @@ main {
   margin: 2rem;
   color: white;
   width: 15rem;
-}
-
-#create-player-form-container {
-  height: 20.3rem;
 }
 
 .creation-form-title {
@@ -51,24 +54,25 @@ main {
   background-color: white;
   width: 4rem;
   height: 1.4rem;
-  margin: 0 5.5rem .8rem;
+  margin: 0 5.5rem 1rem;
 }
 
 .creation-button:hover {
   background-color: rgb(220, 220, 220);
 }
 
-#update-docs-container {
-  display: flex;
-  flex-direction: row;
-  padding: 2rem;
+#create-player-form-container {
+  height: 20.5rem;
 }
 
-#update-player-form-container {
-  height: 23rem;
+#create-tournament-form-container {
+  height: 31.5rem;
 }
 
+#delete-player-form-container {
+  height: 9.5rem;
+}
 
-
-
-
+#delete-tournament-form-container {
+  height: 9.5rem;
+}

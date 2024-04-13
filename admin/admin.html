@@ -25,7 +25,8 @@
     <button id="profile-button" class="navbar-button" type="button">My Profile</button>
   </header>
   <main>
-    <div id="create-docs-container">
+    <div class="category-titles">Manage Players</div>
+    <div class="action-docs-container">
       <div id= "create-player-form-container" class="creation-form-container">
         <div class="creation-form-title">Create Player</div>
         <form id="create-player-form" class="creation-form">
@@ -42,8 +43,37 @@
         </form>
         <button id="create-player-button" class="creation-button" type="button">Submit</button>
       </div>
-      <div class="creation-form-container">
-        <div id="create-tournament-form-container" class="creation-form-title">Create Tournament</div>
+      <div id= "update-player-form-container" class="creation-form-container">
+        <div class="creation-form-title">Update Player</div>
+        <form id="update-player-form" class="creation-form">
+          <label for="id-player-update">Player ID</label>
+          <input id="id-player-update" type="text">
+          <label for="first-name-player-update">First Name</label>
+          <input id="first-name-player-update" type="text">
+          <label for="last-name-player-update">Last Name</label>
+          <input id="last-name-player-update" type="text">
+          <label for="age-player-update">Age</label>
+          <input id="age-player-update" type="text">
+          <label for="nationality-player-update">Nationality</label>
+          <input id="nationality-player-update" type="text">
+          <label for="world-ranking-player-update">World Ranking</label>
+          <input id="world-ranking-player-update" type="text">
+        </form>
+        <button id="update-player-button" class="creation-button" type="button">Submit</button>
+      </div>
+      <div id= "delete-player-form-container" class="creation-form-container">
+        <div class="creation-form-title">Delete Player</div>
+        <form id="delete-player-form" class="creation-form">
+          <label for="id-player-delete">Player ID</label>
+          <input id="id-player-delete" type="text">
+        </form>
+        <button id="delete-player-button" class="creation-button" type="button">Submit</button>
+      </div>
+    </div>
+    <div class="category-titles">Manage Tournaments</div>
+    <div class="action-docs-container">
+      <div id="create-tournament-form-container"class="creation-form-container">
+        <div class="creation-form-title">Create Tournament</div>
         <form id="create-tournament-form" class="creation-form">
           <label for="name-tournament">Name</label>
           <input id="name-tournament" type="text">
@@ -65,26 +95,6 @@
           <input id="prize-breakdown-tournament" type="text">
         </form>
         <button id="create-tournament-button" class="creation-button" type="button">Submit</button>
-      </div>
-    </div>
-    <div id="update-docs-container">
-      <div id= "update-player-form-container" class="creation-form-container">
-        <div class="creation-form-title">Update Player</div>
-        <form id="update-player-form" class="creation-form">
-          <label for="id-player-update">Player ID</label>
-          <input id="id-player-update" type="text">
-          <label for="first-name-player-update">First Name</label>
-          <input id="first-name-player-update" type="text">
-          <label for="last-name-player-update">Last Name</label>
-          <input id="last-name-player-update" type="text">
-          <label for="age-player-update">Age</label>
-          <input id="age-player-update" type="text">
-          <label for="nationality-player-update">Nationality</label>
-          <input id="nationality-player-update" type="text">
-          <label for="world-ranking-player-update">World Ranking</label>
-          <input id="world-ranking-player-update" type="text">
-        </form>
-        <button id="update-player-button" class="creation-button" type="button">Submit</button>
       </div>
       <div class="creation-form-container">
         <div id="update-tournament-form-container" class="creation-form-title">Update Tournament</div>
@@ -111,6 +121,14 @@
           <input id="prize-breakdown-tournament-update" type="text">
         </form>
         <button id="update-tournament-button" class="creation-button" type="button">Submit</button>
+      </div>
+      <div id="delete-tournament-form-container" class="creation-form-container">
+        <div class="creation-form-title">Delete Tournament</div>
+        <form id="delete-tournament-form" class="creation-form">
+          <label for="id-tournament-delete">Name</label>
+          <input id="id-tournament-delete" type="text">
+        </form>
+        <button id="delete-tournament-button" class="creation-button" type="button">Submit</button>
       </div>
     </div>
   </main>

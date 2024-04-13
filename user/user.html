@@ -10,29 +10,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../navbar/navbar.css" type="text/css">
   <link rel="stylesheet" href="../footer/footer.css" type="text/css">
-  <link rel="stylesheet" href="user.css" type="text/css">
+  <link rel="stylesheet" href="./user.css" type="text/css">
   <script defer src="../navbar/navbar.js"></script>
-  <script defer src="user.js"></script>
+  <script defer src="./user.js"></script>
 </head>
 <body>
-  <body>
-    <header>
-      <div id="mb-icon"><a id="mb-icon-link" href="../index.html">MB</a></div>
-      <h1><a id="mb-title-link" href="../index.html">Maximum Break</a></h1>
-      <button id="signup-button" class="navbar-button" type="button">Sign Up</button>
-      <button id="login-button" class="navbar-button" type="button">Log In</button>
-      <button id="logout-button" class="navbar-button" type="button">Log Out</button>
-      <button id="admin-view-button" type="button">Admin View</button>
-      <button id="profile-button" class="navbar-button" type="button">My Profile</button>
-    </header>
-    <main>
-      <div id="get-all-players-button-container">
-        <button type="button" id="get-all-players-button">Show Players</button>
-      </div>
-      <div id="players-container"></div>
-    </main>
-    <footer>
-      <div id="copyright">Copyright Maximum Break, 2024</div>
-    </footer>
-  </body>
+  <header>
+    <div id="mb-icon"><a id="mb-icon-link" href="./index.html">MB</a></div>
+    <h1><a id="mb-title-link" href="../index.html">Maximum Break</a></h1>
+    <button id="signup-button" class="navbar-button" type="button">Sign Up</button>
+    <button id="login-button" class="navbar-button" type="button">Log In</button>
+    <button id="logout-button" class="navbar-button" type="button">Log Out</button>
+    <button id="admin-view-button" type="button">Admin View</button>
+    <button id="profile-button" class="navbar-button" type="button">My Profile</button>
+  </header>
+  <main>
+    <div id="find-a-player-container">
+      <div id="find-a-player-title">Find a Player</div>
+      <form id="find-a-player-form">
+        <input id="player-name-input" type="text">
+        <button id="submit-player-search-button">Search</button>
+      </form>
+      <div id="searched-player-container"></div>
+    </div>
+    <div id="get-all-players-button-container">
+      <button type="button" id="get-all-players-button">Show All Players</button>
+    </div>
+    <div id="player-lists-container">
+      <div id="players-container-1" class="player-container"></div>
+    </div>
+  </main>
+  <footer>
+    <div id="copyright">Copyright Maximum Break, 2024</div>
+  </footer>
+</body>
 </html>
