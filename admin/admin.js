@@ -90,12 +90,6 @@ updateTournamentSubmitButton.addEventListener('click', updateTournament)
 deletePlayerSubmitButton.addEventListener('click', deletePlayer)
 deleteTournamentSubmitButton.addEventListener('click', deleteTournament)
 
-// Retrieve JWT token from local storage
-
-// function getAccessToken() {
-//   return localStorage.getItem('jwtToken')
-// }
-
 // Functions
 
 // Creates a new player in the database based on the html form

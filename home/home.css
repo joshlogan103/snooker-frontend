@@ -11,6 +11,10 @@ main {
   min-height: 100vh;
 }
 
+input {
+  margin-right: 1rem;
+}
+
 #find-a-player-container {
   text-align: center;
   margin: 2rem;

@@ -21,7 +21,7 @@
     <button id="signup-button" class="navbar-button" type="button">Sign Up</button>
     <button id="login-button" class="navbar-button" type="button">Log In</button>
     <button id="logout-button" class="navbar-button" type="button">Log Out</button>
-    <button id="admin-view-button" type="button">Admin View</button>
+    <button id="admin-view-button" class="navbar-button "button">Admin View</button>
     <button id="profile-button" class="navbar-button" type="button">My Profile</button>
   </header>
   <main>
@@ -31,15 +31,15 @@
         <div class="creation-form-title">Create Player</div>
         <form id="create-player-form" class="creation-form">
           <label for="first-name-player">First Name</label>
-          <input id="first-name-player" type="text">
+          <input id="first-name-player" type="text" placeholder="Ronnie">
           <label for="last-name-player">Last Name</label>
-          <input id="last-name-player" type="text">
+          <input id="last-name-player" type="text" placeholder="O'Sullivan">
           <label for="age-player">Age</label>
-          <input id="age-player" type="text">
+          <input id="age-player" type="text" placeholder="48">
           <label for="nationality-player">Nationality</label>
-          <input id="nationality-player" type="text">
+          <input id="nationality-player" type="text" placeholder="United Kingdom">
           <label for="world-ranking-player">World Ranking</label>
-          <input id="world-ranking-player" type="text">
+          <input id="world-ranking-player" type="text" placeholder="1">
         </form>
         <button id="create-player-button" class="creation-button" type="button">Submit</button>
       </div>
@@ -76,23 +76,23 @@
         <div class="creation-form-title">Create Tournament</div>
         <form id="create-tournament-form" class="creation-form">
           <label for="name-tournament">Name</label>
-          <input id="name-tournament" type="text">
+          <input id="name-tournament" type="text" placeholder="The Snooker World Championship">
           <label for="prize-money-tournament">Prize Money</label>
-          <input id="prize-money-tournament" type="text">
+          <input id="prize-money-tournament" type="text" placeholder="2395000">
           <label for="start-date-tournament">Start Date</label>
-          <input id="start-date-tournament" type="text">
+          <input id="start-date-tournament" type="text" placeholder="2023-04-15">
           <label for="end-date-tournament">End Date</label>
-          <input id="end-date-tournament" type="text">
+          <input id="end-date-tournament" type="text" placeholder="2023-04-23">
           <label for="country-tournament">Country</label>
-          <input id="country-tournament" type="text">
+          <input id="country-tournament" type="text" placeholder="United Kingdom">
           <label for="city-tournament">City</label>
-          <input id="city-tournament" type="text">
+          <input id="city-tournament" type="text" placeholder="Sheffield">
           <label for="venue-name-tournament">Venue Name</label>
-          <input id="venue-name-tournament" type="text">
+          <input id="venue-name-tournament" type="text" placeholder="The Crucible">
           <label for="leaderboard-positions-tournament">Leaderboard Positions</label>
-          <input id="leaderboard-positions-tournament" type="text">
+          <input id="leaderboard-positions-tournament" type="text" placeholder="661458e768864acb5314ec1f, 661458e768864acb5314ec1e">
           <label for="prize-breakdown-tournament">Prize Breakdown</label>
-          <input id="prize-breakdown-tournament" type="text">
+          <input id="prize-breakdown-tournament" type="text" placeholder="500000, 250000, 150000, 100000">
         </form>
         <button id="create-tournament-button" class="creation-button" type="button">Submit</button>
       </div>
@@ -125,7 +125,7 @@
       <div id="delete-tournament-form-container" class="creation-form-container">
         <div class="creation-form-title">Delete Tournament</div>
         <form id="delete-tournament-form" class="creation-form">
-          <label for="id-tournament-delete">Name</label>
+          <label for="id-tournament-delete">Tournament ID</label>
           <input id="id-tournament-delete" type="text">
         </form>
         <button id="delete-tournament-button" class="creation-button" type="button">Submit</button>
