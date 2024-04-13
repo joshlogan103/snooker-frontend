@@ -9,6 +9,7 @@ const loginButton = document.getElementById('login-button')
 const signupButton = document.getElementById('signup-button')
 const logoutButton = document.getElementById('logout-button')
 const adminViewButton = document.getElementById('admin-view-button')
+const profileButton = document.getElementById('profile-button')
 
 // Add event listeners
 
@@ -16,6 +17,7 @@ loginButton.addEventListener('click', goToLogin)
 signupButton.addEventListener('click', goToSignup)
 logoutButton.addEventListener('click', logout)
 adminViewButton.addEventListener('click', accessAdminPortal)
+profileButton.addEventListener('click', goToProfile)
 
 
 // Retrieve JWT token from local storage
@@ -45,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           logoutButton.style.display = 'block'
           adminViewButton.style.display = 'block'
+          profileButton.style.display = 'block'
         }
       })
   }
@@ -64,5 +67,9 @@ function logout() {
 }
 
 function accessAdminPortal() {
-  window.location.href='../admin/admin.html'
+  window.location.href = '../admin/admin.html'
+}
+
+function goToProfile() {
+  window.location.href = '../user/user.html'
 }

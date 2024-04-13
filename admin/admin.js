@@ -10,6 +10,7 @@ const lastNamePlayerInput = document.getElementById('last-name-player')
 const agePlayerInput = document.getElementById('age-player')
 const nationalityPlayerInput = document.getElementById('nationality-player')
 const worldRankingPlayerInput = document.getElementById('world-ranking-player')
+// Add update element caches here
 
 // Create tournament form elements
 

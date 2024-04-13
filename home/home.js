@@ -5,8 +5,6 @@ const submitPlayerSearchButton = document.getElementById('submit-player-search-b
 const searchedPlayerContainer = document.getElementById('searched-player-container')
 const showPlayersButton = document.getElementById('get-all-players-button')
 const playersDiv1 = document.getElementById('players-container-1')
-const playersDiv2 = document.getElementById('players-container-2')
-const playersDiv3 = document.getElementById('players-container-3')
 
 // Set event listeners
 
@@ -70,13 +68,7 @@ function getAllPlayers() {
             newPlayerUl.appendChild(newPlayerFieldLi)
           }
         })
-        if(data.indexOf(player) % columnCount === 0) {
-          playersDiv1.appendChild(newPlayerUl)
-        } else if (data.indexOf(player) % columnCount === 1) {
-          playersDiv2.appendChild(newPlayerUl)
-        } else {
-          playersDiv3.appendChild(newPlayerUl)
-        }
+        playersDiv1.appendChild(newPlayerUl)
       })
     })
 }

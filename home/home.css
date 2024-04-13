@@ -61,7 +61,13 @@ main {
 
 #player-lists-container {
   display: flex;
-  flex-direction: row;
+  justify-content: start;
+}
+
+#players-container-1 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: .5rem;
 }
 
 .player-container {
@@ -78,6 +84,3 @@ main {
   list-style-type: none;
 }
 
-#admin-view-link {
-  font-size: 1rem;
-}

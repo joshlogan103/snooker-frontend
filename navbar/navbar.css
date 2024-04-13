@@ -69,3 +69,9 @@ a {
   right: 10rem;
   display: none;
 }
+
+#profile-button {
+  position: absolute;
+  right: 18rem;
+  display: none;
+}
