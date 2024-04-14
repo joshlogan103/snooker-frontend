@@ -1,7 +1,7 @@
 // API URL cache
 
-//const databaseURL = 'http://localhost:3005'
-const databaseURL = 'https://maximum-break-api-943feb008688.herokuapp.com'
+const APIURL = 'http://localhost:3005'
+//const databaseURL = 'https://maximum-break-api-943feb008688.herokuapp.com'
 
 // Cache html elements
 
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loginButton.style.display = 'block'
     signupButton.style.display = 'block'
   } else {
-    fetch(`${databaseURL}/auth/verifyLoggedIn`, {
+    fetch(`${APIURL}/auth/verifyLoggedIn`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json',
       'Authorization': `Bearer ${getAccessToken()}`},

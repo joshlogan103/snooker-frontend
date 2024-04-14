@@ -16,7 +16,7 @@ function signup(e) {
     username: usernameField.value,
     password: passwordField.value
   }
-  fetch(`${databaseURL}/auth/signup`, {
+  fetch(`${APIURL}/auth/signup`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(userData) })

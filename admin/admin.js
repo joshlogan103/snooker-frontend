@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!accessToken) {
     window.location.href='../login/login.html'
   } else {
-    fetch(`${databaseURL}/auth/validateAdmin`, {
+    fetch(`${APIURL}/auth/validateAdmin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json',
       'Authorization': `Bearer ${getAccessToken()}`},
@@ -103,7 +103,7 @@ function createPlayer(e) {
     nationality: nationalityPlayerInput.value,
     worldRanking: worldRankingPlayerInput.value
   }
-  fetch(`${databaseURL}/players`,{
+  fetch(`${APIURL}/players`,{
     method: 'POST',
     headers: { 'Content-Type': 'application/json',
     'Authorization': `Bearer ${getAccessToken()}`},
@@ -140,7 +140,7 @@ function createTournament(e) {
       prizeMoneyBreakdown: prizeBreakdown
     }
   }
-  fetch(`${databaseURL}/tournaments`,{
+  fetch(`${APIURL}/tournaments`,{
     method: 'POST',
     headers: { 'Content-Type': 'application/json',
     'Authorization': `Bearer ${getAccessToken()}`},
@@ -173,7 +173,7 @@ function updatePlayer(e) {
   if (worldRankingPlayerUpdateInput.value) {updatedPlayer.worldRanking = worldRankingPlayerUpdateInput.value}
 
   console.log(updatedPlayer)
-  fetch(`${databaseURL}/players/${playerId}`,{
+  fetch(`${APIURL}/players/${playerId}`,{
     method: 'PUT',
     headers: { 'Content-Type': 'application/json',
     'Authorization': `Bearer ${getAccessToken()}`},
@@ -218,7 +218,7 @@ function updateTournament(e) {
   console.log(leaderboard)
   console.log(updatedTournament)
 
-  fetch(`${databaseURL}/tournaments/${tournamentId}`,{
+  fetch(`${APIURL}/tournaments/${tournamentId}`,{
     method: 'PUT',
     headers: { 'Content-Type': 'application/json',
     'Authorization': `Bearer ${getAccessToken()}`},
@@ -244,7 +244,7 @@ function updateTournament(e) {
 function deletePlayer(e) {
   e.preventDefault()
   const playerId = idPlayerDeleteInput.value
-  fetch(`${databaseURL}/players/${playerId}`,{
+  fetch(`${APIURL}/players/${playerId}`,{
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json',
     'Authorization': `Bearer ${getAccessToken()}`},
@@ -261,7 +261,7 @@ function deletePlayer(e) {
   function deleteTournament(e) {
     e.preventDefault()
     const tournamentId = idTournamentDeleteInput.value
-    fetch(`${databaseURL}/tournaments/${tournamentId}`,{
+    fetch(`${APIURL}/tournaments/${tournamentId}`,{
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json',
       'Authorization': `Bearer ${getAccessToken()}`},

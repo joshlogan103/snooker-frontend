@@ -11,17 +11,17 @@ main {
   min-height: 100vh;
 }
 
-#find-a-player-container {
+#create-an-attendance-container {
   text-align: center;
   margin: 2rem;
 }
 
-#find-a-player-title {
+#create-an-attendance-title {
   font-size: 1.25rem;
   margin: .5rem;
 }
 
-#submit-player-search-button {
+#submit-attendance-button {
   border: none;
   border-radius: 7px;
   color: white;
@@ -30,21 +30,21 @@ main {
   font-size: 1rem;
 }
 
-#submit-player-search-button:hover {
+#submit-attendance-button:hover {
   background-color: rgb(64, 107, 108);
 }
 
-#player-name-input {
+#tournament-id-input {
   height: 1.25rem;
 }
 
-#get-all-players-button-container {
+#get-all-attendances-button-container {
   display: flex;
   justify-content: center;
   margin: .5rem;
 }
 
-#get-all-players-button {
+#get-all-attendances-button {
   border: none;
   border-radius: 7px;
   background-color: cadetblue;
@@ -55,32 +55,32 @@ main {
   font-size: 20px;
 }
 
-#get-all-players-button:hover {
+#get-all-attendances-button:hover {
   background-color: rgb(64, 107, 108);
 }
 
-#player-lists-container {
+#attendance-lists-container {
   display: flex;
   justify-content: start;
 }
 
-#players-container-1 {
+#attendance-container-1 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: .5rem;
 }
 
-.player-container {
+.attendance-container {
   width: 33vw;
 }
 
-.player-ul {
+.attendance-ul {
   margin: 2rem;
   width: 15rem;
   border: solid 1px black;
 }
 
-.player-field-li {
+.attendance-field-li {
   list-style-type: none;
 }
 

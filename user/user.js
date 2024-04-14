@@ -1,10 +1,9 @@
 // Cache html elements
 
-const playerNameInput = document.getElementById('player-name-input')
-const submitPlayerSearchButton = document.getElementById('submit-player-search-button')
-const searchedPlayerContainer = document.getElementById('searched-player-container')
-const showPlayersButton = document.getElementById('get-all-players-button')
-const playersDiv1 = document.getElementById('players-container-1')
+const playerNameInput = document.getElementById('attendance-name-input')
+const submitPlayerSearchButton = document.getElementById('submit-attendance-search-button')
+const searchedPlayerContainer = document.getElementById('searched-attendance-container')
+const showPlayersButton = document.getElementById('get-all-attendances-button')
 
 // Set event listeners
 
@@ -26,7 +25,7 @@ function findPlayer(e) {
   searchedPlayerContainer.innerHTML = ''
   let playerNameValue = playerNameInput.value
   playerNameValue = playerNameValue.replace(/\s/g,'_') // Replace spaces with underscores in name
-  fetch(`${databaseURL}/players/name/${playerNameValue}`)
+  fetch(`${APIURL}/players/name/${playerNameValue}`)
     .then(res => res.json())
     .then(player => {
       const newPlayerUl = document.createElement('ul')
@@ -44,11 +43,11 @@ function findPlayer(e) {
     })
 }
 
-// Get all Players from API
+// Get all Attendances from API
 
 function getAllPlayers() {
   playersDiv1.innerHTML = ''
-  fetch(`${databaseURL}/players`, {
+  fetch(`${APIURL}/attendances`, {
     method: 'GET',
     headers:  {'Authorization': `Bearer ${getAccessToken()}`}
   })

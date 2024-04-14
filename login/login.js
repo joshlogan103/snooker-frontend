@@ -16,7 +16,7 @@ function login(e) {
     username: usernameField.value,
     password: passwordField.value
   }
-  fetch(`${databaseURL}/auth/login`, {
+  fetch(`${APIURL}/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(userData) })

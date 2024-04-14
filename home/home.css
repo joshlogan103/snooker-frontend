@@ -12,7 +12,7 @@ main {
 }
 
 input {
-  margin-right: 1rem;
+  margin-right: .5rem;
 }
 
 #find-a-player-container {
@@ -40,6 +40,23 @@ input {
 
 #player-name-input {
   height: 1.25rem;
+}
+
+#searched-player-container {
+  display: flex;
+  justify-content: center;
+}
+
+.player-related-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: .5rem;
+  text-align: left;
+}
+
+.searched-player-ul {
+  border: solid 1px black;
+  padding: 1rem;
 }
 
 #get-all-players-button-container {
@@ -80,7 +97,7 @@ input {
 
 .player-ul {
   margin: 2rem;
-  width: 15rem;
+  min-width: 15rem;
   border: solid 1px black;
 }
 
