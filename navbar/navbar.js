@@ -1,6 +1,6 @@
 // API URL cache
 
-const APIURL = 'https://maximum-break-api-943feb008688.herokuapp.com/'
+const APIURL = 'https://maximum-break-api-943feb008688.herokuapp.com'
 
 // Cache html elements
 
