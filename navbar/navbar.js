@@ -46,12 +46,32 @@ document.addEventListener('DOMContentLoaded', () => {
           signupButton.style.display = 'block'
         } else {
           logoutButton.style.display = 'block'
-          adminViewButton.style.display = 'block'
           profileButton.style.display = 'block'
         }
       })
+      .then(() => {
+        validateAdminNavBar()
+      })
   }
 })
+
+// Check if a user is an admin
+
+function validateAdminNavBar() {
+  fetch(`${APIURL}/auth/validateAdmin`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json',
+    'Authorization': `Bearer ${getAccessToken()}`},
+    body: '' })
+    .then(res => res.json())
+    .then(data => {
+      if (data === true) {
+        adminViewButton.style.display = 'block'
+      }
+    })
+  
+}
+
 
 function goToLogin() {
   window.location.href = '../login/login.html'

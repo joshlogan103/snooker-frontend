@@ -66,12 +66,12 @@ a {
 
 #admin-view-button {
   position: absolute;
-  right: 10rem;
+  right: 18rem;
   display: none;
 }
 
 #profile-button {
   position: absolute;
-  right: 18rem;
+  right: 10.5rem;
   display: none;
 }
