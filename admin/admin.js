@@ -27,7 +27,7 @@ const prizeBreakdownTournamentInput = document.getElementById('prize-breakdown-t
 // Update player form elements
 
 const updatePlayerSubmitButton = document.getElementById('update-player-button')
-const updatePlayerPlayerIdDropdown = document.getElementById('update-player-playerId-dropdown')
+const updatePlayerFullNameDropdown = document.getElementById('update-player-fullName-dropdown')
 const idPlayerUpdateInput = document.getElementById('id-player-update')
 const firstNamePlayerUpdateInput = document.getElementById('first-name-player-update')
 const lastNamePlayerUpdateInput = document.getElementById('last-name-player-update')
@@ -38,6 +38,7 @@ const worldRankingPlayerUpdateInput = document.getElementById('world-ranking-pla
 // Update tournament form elements
 
 const updateTournamentSubmitButton = document.getElementById('update-tournament-button') 
+const updateTournamentNameDropdown = document.getElementById('update-tournament-name-dropdown')
 const idTournamentUpdateInput = document.getElementById('id-tournament-update')
 const nameTournamentUpdateInput = document.getElementById('name-tournament-update')
 const prizeMoneyTournamentUpdateInput = document.getElementById('prize-money-tournament-update')
@@ -52,11 +53,13 @@ const prizeBreakdownTournamentUpdateInput = document.getElementById('prize-break
 // Delete player form elements
 
 const deletePlayerSubmitButton = document.getElementById('delete-player-button')
+const deletePlayerFullNameDropdown = document.getElementById('delete-player-fullName-dropdown')
 const idPlayerDeleteInput = document.getElementById('id-player-delete')
 
 // Delete tournament form elements
 
-const deleteTournamentSubmitButton = document.getElementById('delete-tournament-button') 
+const deleteTournamentSubmitButton = document.getElementById('delete-tournament-button')
+const deleteTournamentNameDropdown = document.getElementById('delete-tournament-name-dropdown')
 const idTournamentDeleteInput = document.getElementById('id-tournament-delete')
 
 // Protect this page to only logged in admins
@@ -91,8 +94,14 @@ updateTournamentSubmitButton.addEventListener('click', updateTournament)
 deletePlayerSubmitButton.addEventListener('click', deletePlayer)
 deleteTournamentSubmitButton.addEventListener('click', deleteTournament)
 
-updatePlayerPlayerIdDropdown.addEventListener('click', loadPlayerNames)
-updatePlayerPlayerIdDropdown.addEventListener('change', populatePlayerId)
+updatePlayerFullNameDropdown.addEventListener('click', loadPlayerNames)
+updatePlayerFullNameDropdown.addEventListener('change', populateUpdatePlayerDetails)
+deletePlayerFullNameDropdown.addEventListener('click', loadPlayerNames)
+deletePlayerFullNameDropdown.addEventListener('change', populateDeletePlayerId)
+updateTournamentNameDropdown.addEventListener('click', loadTournamentNames)
+updateTournamentNameDropdown.addEventListener('change', populateUpdateTournamentDetails)
+deleteTournamentNameDropdown.addEventListener('click', loadTournamentNames)
+deleteTournamentNameDropdown.addEventListener('change', populateDeleteTournamentId)
 
 // Functions
 
@@ -175,8 +184,6 @@ function updatePlayer(e) {
   if (agePlayerUpdateInput.value) {updatedPlayer.age = agePlayerUpdateInput.value}
   if (nationalityPlayerUpdateInput.value) {updatedPlayer.nationality = nationalityPlayerUpdateInput.value}
   if (worldRankingPlayerUpdateInput.value) {updatedPlayer.worldRanking = worldRankingPlayerUpdateInput.value}
-
-  console.log(updatedPlayer)
   fetch(`${APIURL}/players/${playerId}`,{
     method: 'PUT',
     headers: { 'Content-Type': 'application/json',
@@ -286,19 +293,21 @@ function loadPlayerNames() {
   })
     .then(res => res.json())
     .then(data => {
-      updatePlayerPlayerIdDropdown.innerHTML = ''
       if (!data.length > 0) return
       data.forEach(player => {
         const newOption = document.createElement('option')
-        newOption.classList.add('playerName-option')
+        newOption.classList.add('player-name-option')
         newOption.value = player.fullName
         newOption.textContent = player.fullName
-        updatePlayerPlayerIdDropdown.appendChild(newOption)
+        this.appendChild(newOption)
       })
     })
+  this.removeEventListener('click', loadPlayerNames)
 }
 
-function populatePlayerId(e) {
+// Populate player details into update player form fields
+
+function populateUpdatePlayerDetails(e) {
   const fullName = e.target.value
   fetch(`${APIURL}/players/name/${fullName}`, {
     method: 'GET',
@@ -307,6 +316,100 @@ function populatePlayerId(e) {
     .then(res => res.json())
     .then(player => {
       idPlayerUpdateInput.value = ''
+      firstNamePlayerUpdateInput.value = ''
+      lastNamePlayerUpdateInput.value = ''
+      agePlayerUpdateInput.value = ''
+      nationalityPlayerUpdateInput.value = ''
+      worldRankingPlayerUpdateInput.value = ''
       idPlayerUpdateInput.value = player._id
+      firstNamePlayerUpdateInput.value = player.firstName
+      lastNamePlayerUpdateInput.value = player.lastName
+      agePlayerUpdateInput.value = player.age
+      nationalityPlayerUpdateInput.value = player.nationality
+      worldRankingPlayerUpdateInput.value = player.worldRanking
+    })
+}
+
+// Populate player ID into delete player form field
+
+function populateDeletePlayerId(e) {
+  const fullName = e.target.value
+  fetch(`${APIURL}/players/name/${fullName}`, {
+    method: 'GET',
+    headers:  {'Authorization': `Bearer ${getAccessToken()}`}
+  })
+    .then(res => res.json())
+    .then(player => {
+      idPlayerDeleteInput.value = ''
+      idPlayerDeleteInput.value = player._id
+    })
+}
+
+// Load player names into options for the playerId dropdown
+
+function loadTournamentNames() {
+  fetch(`${APIURL}/tournaments`, {
+    method: 'GET',
+    headers:  {'Authorization': `Bearer ${getAccessToken()}`}
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (!data.length > 0) return
+      data.forEach(tournament => {
+        const newOption = document.createElement('option')
+        newOption.classList.add('tournament-name-option')
+        newOption.value = tournament.name
+        newOption.textContent = tournament.name
+        this.appendChild(newOption)
+      })
+    })
+  this.removeEventListener('click', loadTournamentNames)
+}
+
+// Populate Tournament details into update tournament form fields
+
+function populateUpdateTournamentDetails(e) {
+  const name = e.target.value
+  fetch(`${APIURL}/tournament/name/${name}`, {
+    method: 'GET',
+    headers:  {'Authorization': `Bearer ${getAccessToken()}`}
+  })
+    .then(res => res.json())
+    .then(tournament => {
+      idTournamentUpdateInput.value = ''
+      nameTournamentUpdateInput.value = ''
+      prizeMoneyTournamentUpdateInput.value = ''
+      startDateTournamentUpdateInput.value = ''
+      endDateTournamentUpdateInput.value = ''
+      countryTournamentUpdateInput.value = ''
+      cityTournamentUpdateInput.value = ''
+      venueNameTournamentUpdateInput.value = ''
+      positionsTournamentUpdateInput.value = ''
+      prizeBreakdownTournamentUpdateInput.value = ''
+      idTournamentUpdateInput.value = tournament._id
+      nameTournamentUpdateInput.value = tournament.name
+      prizeMoneyTournamentUpdateInput.value = tournament.prizeMoney
+      startDateTournamentUpdateInput.value = tournament.startDate
+      endDateTournamentUpdateInput.value = tournament.endDate
+      countryTournamentUpdateInput.value = tournament.country
+      cityTournamentUpdateInput.value = tournament.city
+      venueNameTournamentUpdateInput.value = tournament.venueName
+      positionsTournamentUpdateInput.value = tournament.positions
+      prizeBreakdownTournamentUpdateInput.value = tournament.prizeMoneyBreakdown
+    })
+}
+
+// Populate tournament ID into delete tournament form field
+
+function populateDeleteTournamentId(e) {
+  const name = e.target.value
+  fetch(`${APIURL}/tournament/name/${name}`, {
+    method: 'GET',
+    headers:  {'Authorization': `Bearer ${getAccessToken()}`}
+  })
+    .then(res => res.json())
+    .then(tournament => {
+      idTournamentDeleteInput.value = ''
+      idPlayerDeleteInput.value = tournament._id
     })
 }

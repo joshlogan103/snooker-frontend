@@ -46,7 +46,9 @@
       <div id= "update-player-form-container" class="creation-form-container">
         <div class="creation-form-title">Update Player</div>
         <form id="update-player-form" class="creation-form">
-          <select name="playerId" id="update-player-playerId-dropdown"></select>
+          <select name="fullName" id="update-player-fullName-dropdown">
+            <option name="select-a-player">Select a Player</option>
+          </select>
           <label for="id-player-update">Player ID</label>
           <input id="id-player-update" type="text">
           <label for="first-name-player-update">First Name</label>
@@ -65,6 +67,9 @@
       <div id= "delete-player-form-container" class="creation-form-container">
         <div class="creation-form-title">Delete Player</div>
         <form id="delete-player-form" class="creation-form">
+          <select name="fullName" id="delete-player-fullName-dropdown">
+            <option name="select-a-player">Select a Player</option>
+          </select>
           <label for="id-player-delete">Player ID</label>
           <input id="id-player-delete" type="text">
         </form>
@@ -100,6 +105,9 @@
       <div class="creation-form-container">
         <div id="update-tournament-form-container" class="creation-form-title">Update Tournament</div>
         <form id="update-tournament-form" class="creation-form">
+          <select name="name" id="update-tournament-name-dropdown">
+            <option name="select-a-tournament">Select a Tournament</option>
+          </select>
           <label for="id-tournament-update">Tournament ID</label>
           <input id="id-tournament-update" type="text">
           <label for="name-tournament-update">Name</label>
@@ -126,6 +134,9 @@
       <div id="delete-tournament-form-container" class="creation-form-container">
         <div class="creation-form-title">Delete Tournament</div>
         <form id="delete-tournament-form" class="creation-form">
+          <select name="name" id="delete-tournament-name-dropdown">
+            <option name="select-a-tournament">Select a Tournament</option>
+          </select>
           <label for="id-tournament-delete">Tournament ID</label>
           <input id="id-tournament-delete" type="text">
         </form>
