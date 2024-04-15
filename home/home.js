@@ -7,6 +7,7 @@ const playerTournamentsContainer = document.getElementById('player-tournaments-c
 const showPlayersButton = document.getElementById('get-all-players-button')
 const playersDiv1 = document.getElementById('players-container-1')
 const playerPerformancesContainer = document.getElementById('player-performances-container')
+const tournamentsTitle = document.getElementById('tournaments-title')
 
 // Set event listeners
 
@@ -38,25 +39,10 @@ function findPlayer(e) {
       const newPlayerUl = document.createElement('ul')
       newPlayerUl.classList.add('searched-player-ul')
       Object.keys(player).forEach(key => {
-        const fields = ['fullName', 'age', 'nationality', 'worldRanking', 'lifetimeEarnings', 'tournamentsPlayed']
+        const fields = ['fullName', 'age', 'nationality', 'worldRanking', 'lifetimeEarnings']
         if (fields.includes(key)) {
           if (key === 'fullName') {
             newPlayerUl.prepend(`${player[key]}`)
-          } else if (key === 'tournamentsPlayed') {
-            const playerTournamentFields = ['name', 'startDate', 'endDate', 'prizeMoney']
-            player[key].forEach(playerTournament => {
-              const newPlayerTournamentUl = document.createElement('ul')
-              newPlayerTournamentUl.classList.add('player-field-li')
-              Object.entries(playerTournament).forEach(([tournamentKey, tournamentValue]) => {
-                if (playerTournamentFields.includes(tournamentKey)) {
-                  const newPlayerTournamentLi = document.createElement('li')
-                  newPlayerTournamentLi.classList.add('player-field-li')
-                  newPlayerTournamentLi.textContent = `${tournamentKey}: ${tournamentValue}`
-                  newPlayerTournamentUl.appendChild(newPlayerTournamentLi)
-                }
-              })
-              playerTournamentsContainer.appendChild(newPlayerTournamentUl)
-            })
           } else {
             const newPlayerFieldLi = document.createElement('li')
             newPlayerFieldLi.classList.add('player-field-li')
@@ -65,10 +51,39 @@ function findPlayer(e) {
           }
         }
       })
+      tournamentsTitle.textContent = "Tournaments Results"
       searchedPlayerContainer.appendChild(newPlayerUl)
     })
-    .then(player => {
+    .then(() => {
       getSearchedPlayerPerformances(playerId)
+    })
+}
+
+// Get all performances for the searched player
+
+function getSearchedPlayerPerformances(playerId) {
+  fetch(`${APIURL}/performances/player/${playerId}`)
+    .then(res => res.json())
+    .then(performances => {
+      console.log(performances)
+      const performanceFields = ['tournamentId', 'position', 'prizeEarned']
+      performances.forEach(performance => {
+        const newPerformanceUl = document.createElement('ul')
+        newPerformanceUl.classList.add('performance-ul')
+        Object.entries(performance).forEach(([key, value]) => {
+          if (performanceFields.includes(key)) {
+            const newPerformanceFieldLi = document.createElement('li')
+            newPerformanceFieldLi.classList.add('player-field-li')
+            if (key === 'tournamentId') {
+              newPerformanceFieldLi.textContent = `tournament: ${value.name}`
+            } else {
+              newPerformanceFieldLi.textContent = `${key}: ${value}`
+            }
+            newPerformanceUl.appendChild(newPerformanceFieldLi)
+          }
+        })
+        playerPerformancesContainer.appendChild(newPerformanceUl)
+      })
     })
 }
 
@@ -84,7 +99,6 @@ function getAllPlayers() {
     .then(data => {
       if (!data.length > 0) return
       data.forEach(player => {
-        const columnCount = 3
         const newPlayerUl = document.createElement('ul')
         newPlayerUl.classList.add('player-ul')
         Object.keys(player).forEach(key => {
@@ -105,24 +119,19 @@ function getAllPlayers() {
     })
 }
 
-function getSearchedPlayerPerformances(playerId) {
-  fetch(`${APIURL}/performances/player/${playerId}`)
-    .then(res => res.json())
-    .then(performances => {
-      console.log(performances)
-      const performanceFields = ['position', 'prizeEarned']
-      performances.forEach(performance => {
-        const newPerformanceUl = document.createElement('ul')
-        newPerformanceUl.classList.add('performance-ul')
-        Object.entries(performance).forEach(([key, value]) => {
-          if (performanceFields.includes(key)) {
-            const newPerformanceFieldLi = document.createElement('li')
-            newPerformanceFieldLi.classList.add('player-field-li')
-            newPerformanceFieldLi.textContent = `${key}: ${value}`
-            newPerformanceUl.appendChild(newPerformanceFieldLi)
-          }
-        })
-        playerPerformancesContainer.appendChild(newPerformanceUl)
-      })
-    })
-}
+
+// else if (key === 'tournamentsPlayed') {
+//   const playerTournamentFields = ['name', 'startDate', 'endDate', 'prizeMoney']
+//   player[key].forEach(playerTournament => {
+//     const newPlayerTournamentUl = document.createElement('ul')
+//     newPlayerTournamentUl.classList.add('player-field-li')
+//     Object.entries(playerTournament).forEach(([tournamentKey, tournamentValue]) => {
+//       if (playerTournamentFields.includes(tournamentKey)) {
+//         const newPlayerTournamentLi = document.createElement('li')
+//         newPlayerTournamentLi.classList.add('player-field-li')
+//         newPlayerTournamentLi.textContent = `${tournamentKey}: ${tournamentValue}`
+//         newPlayerTournamentUl.appendChild(newPlayerTournamentLi)
+//       }
+//     })
+//     playerTournamentsContainer.appendChild(newPlayerTournamentUl)
+//   })

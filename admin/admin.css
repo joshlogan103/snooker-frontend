@@ -76,3 +76,7 @@ main {
 #delete-tournament-form-container {
   height: 9.5rem;
 }
+
+select {
+  margin-bottom: .5rem;
+}

@@ -59,6 +59,11 @@ input {
   padding: 1rem;
 }
 
+#tournaments-title {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
 #get-all-players-button-container {
   display: flex;
   justify-content: center;

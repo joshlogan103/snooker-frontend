@@ -27,6 +27,7 @@ const prizeBreakdownTournamentInput = document.getElementById('prize-breakdown-t
 // Update player form elements
 
 const updatePlayerSubmitButton = document.getElementById('update-player-button')
+const updatePlayerPlayerIdDropdown = document.getElementById('update-player-playerId-dropdown')
 const idPlayerUpdateInput = document.getElementById('id-player-update')
 const firstNamePlayerUpdateInput = document.getElementById('first-name-player-update')
 const lastNamePlayerUpdateInput = document.getElementById('last-name-player-update')
@@ -89,6 +90,9 @@ updatePlayerSubmitButton.addEventListener('click', updatePlayer)
 updateTournamentSubmitButton.addEventListener('click', updateTournament)
 deletePlayerSubmitButton.addEventListener('click', deletePlayer)
 deleteTournamentSubmitButton.addEventListener('click', deleteTournament)
+
+updatePlayerPlayerIdDropdown.addEventListener('click', loadPlayerNames)
+updatePlayerPlayerIdDropdown.addEventListener('change', populatePlayerId)
 
 // Functions
 
@@ -256,19 +260,53 @@ function deletePlayer(e) {
   idPlayerDeleteInput.value = ''
 }
 
-  // Delete a tournament in the databse by entering the tournament ID
+// Delete a tournament in the databse by entering the tournament ID
 
-  function deleteTournament(e) {
-    e.preventDefault()
-    const tournamentId = idTournamentDeleteInput.value
-    fetch(`${APIURL}/tournaments/${tournamentId}`,{
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json',
-      'Authorization': `Bearer ${getAccessToken()}`},
+function deleteTournament(e) {
+  e.preventDefault()
+  const tournamentId = idTournamentDeleteInput.value
+  fetch(`${APIURL}/tournaments/${tournamentId}`,{
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json',
+    'Authorization': `Bearer ${getAccessToken()}`},
+  })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
     })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
+  idTournamentDeleteInput.value = ''
+}
+
+// Load player names into options for the playerId dropdown
+
+function loadPlayerNames() {
+  fetch(`${APIURL}/players`, {
+    method: 'GET',
+    headers:  {'Authorization': `Bearer ${getAccessToken()}`}
+  })
+    .then(res => res.json())
+    .then(data => {
+      updatePlayerPlayerIdDropdown.innerHTML = ''
+      if (!data.length > 0) return
+      data.forEach(player => {
+        const newOption = document.createElement('option')
+        newOption.classList.add('playerName-option')
+        newOption.value = player.fullName
+        newOption.textContent = player.fullName
+        updatePlayerPlayerIdDropdown.appendChild(newOption)
       })
-    idTournamentDeleteInput.value = ''
-  }
+    })
+}
+
+function populatePlayerId(e) {
+  const fullName = e.target.value
+  fetch(`${APIURL}/players/name/${fullName}`, {
+    method: 'GET',
+    headers:  {'Authorization': `Bearer ${getAccessToken()}`}
+  })
+    .then(res => res.json())
+    .then(player => {
+      idPlayerUpdateInput.value = ''
+      idPlayerUpdateInput.value = player._id
+    })
+}
