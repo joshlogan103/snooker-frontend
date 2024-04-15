@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })
 
-// Add event listeners
+// Add event listeners to forms
 
 createPlayerSubmitButton.addEventListener('click', createPlayer)
 createTournamentSubmitButton.addEventListener('click', createTournament)

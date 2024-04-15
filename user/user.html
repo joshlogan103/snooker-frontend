@@ -25,12 +25,20 @@
     <button id="profile-button" class="navbar-button" type="button">My Profile</button>
   </header>
   <main>
-    <div id="create-an-attendance-container">
-      <div id="create-an-attendance-title">Create Attendance</div>
-      <form id="create-an-attendance-form">
-        <input id="tournament-id-input" type="text">
-        <button id="submit-attendance-button">Create</button>
-      </form>
+    <div class="action-docs-container">
+      <div id= "create-attendance-form-container" class="creation-form-container">
+        <div class="creation-form-title">Create Attendance</div>
+        <form id="create-attendance-form" class="creation-form">
+          <select name="name" id="tournament-name-dropdown">
+            <option name="select-a-tournament">Select a Tournament</option>
+          </select>
+          <label for="price-paid">Price Paid</label>
+          <input id="price-paid" type="text" placeholder="49.50">
+          <label for="date-attended">Date Attended</label>
+          <input id="date-attended" type="text" placeholder="2023-04-15">
+        </form>
+        <button id="create-attendance-button" class="creation-button" type="button">Submit</button>
+      </div>
     </div>
     <div id="get-all-attendances-button-container">
       <button type="button" id="get-all-attendances-button">Show Attendances</button>

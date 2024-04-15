@@ -4,10 +4,10 @@ const playerNameInput = document.getElementById('player-name-input')
 const submitPlayerSearchButton = document.getElementById('submit-player-search-button')
 const searchedPlayerContainer = document.getElementById('searched-player-container')
 const playerTournamentsContainer = document.getElementById('player-tournaments-container')
-const showPlayersButton = document.getElementById('get-all-players-button')
-const playersDiv1 = document.getElementById('players-container-1')
 const playerPerformancesContainer = document.getElementById('player-performances-container')
 const tournamentsTitle = document.getElementById('tournaments-title')
+const showPlayersButton = document.getElementById('get-all-players-button')
+const playersDiv1 = document.getElementById('players-container-1')
 
 // Set event listeners
 

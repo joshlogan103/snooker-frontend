@@ -11,31 +11,50 @@ main {
   min-height: 100vh;
 }
 
-#create-an-attendance-container {
-  text-align: center;
+input {
+  margin-right: .5rem;
+}
+
+.action-docs-container {
+  display: flex;
+  flex-direction: row;
+  padding: 0 2rem;
+  justify-content: center;
+}
+
+.creation-form-container {
+  background-color: rgb(80, 138, 140);
+  border-radius: 4px;
   margin: 2rem;
+  color: white;
+  width: 15rem;
 }
 
-#create-an-attendance-title {
+.creation-form-title {
+  text-align: center;
+  padding: .5rem 0 0 0;
   font-size: 1.25rem;
-  margin: .5rem;
 }
 
-#submit-attendance-button {
+.creation-form {
+  display: flex;
+  flex-direction: column;
+  width: 12rem;
+  padding: 1rem;
+}
+
+.creation-button {
+  text-align: center;
   border: none;
   border-radius: 7px;
-  color: white;
-  background-color: cadetblue;
-  padding: .4rem .8rem;
-  font-size: 1rem;
+  background-color: white;
+  width: 4rem;
+  height: 1.4rem;
+  margin: 0 5.5rem 1rem;
 }
 
-#submit-attendance-button:hover {
-  background-color: rgb(64, 107, 108);
-}
-
-#tournament-id-input {
-  height: 1.25rem;
+.creation-button:hover {
+  background-color: rgb(220, 220, 220);
 }
 
 #get-all-attendances-button-container {
@@ -66,7 +85,7 @@ main {
 
 #attendance-container-1 {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: .5rem;
 }
 
@@ -76,7 +95,7 @@ main {
 
 .attendance-ul {
   margin: 2rem;
-  width: 15rem;
+  min-width: 20rem;
   border: solid 1px black;
 }
 
@@ -84,3 +103,6 @@ main {
   list-style-type: none;
 }
 
+select {
+  margin-bottom: .5rem;
+}

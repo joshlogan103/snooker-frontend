@@ -1,52 +1,87 @@
-// Cache html elements
+// Cache create attendance form elements
 
-const playerNameInput = document.getElementById('attendance-name-input')
-const submitPlayerSearchButton = document.getElementById('submit-attendance-search-button')
-const searchedPlayerContainer = document.getElementById('searched-attendance-container')
-const showPlayersButton = document.getElementById('get-all-attendances-button')
+const createAttendanceSubmitButton = document.getElementById('create-attendance-button')
+const tournamentNameDropdown = document.getElementById('tournament-name-dropdown')
+const pricePaid = document.getElementById('price-paid')
+const dateAttended = document.getElementById('date-attended')
+const showAttendancesButton = document.getElementById('get-all-attendances-button')
+const attendanceDiv1 = document.getElementById('attendance-container-1')
+
+// Initialize variables to cache user and to store user selection of tournament attended
+
+let user
+let tournamentAttended = ''
 
 // Set event listeners
 
-submitPlayerSearchButton.addEventListener('click', findPlayer)
-showPlayersButton.addEventListener('click', getAllPlayers)
-
-// Retrieve JWT token from local storage
-
-function getAccessToken() {
-  return localStorage.getItem('jwtToken')
-}
+createAttendanceSubmitButton.addEventListener('click', createAttendance)
+tournamentNameDropdown.addEventListener('click', loadTournamentNamesAttendance)
+tournamentNameDropdown.addEventListener('change', storeTournamentIdAttendance)
+showAttendancesButton.addEventListener('click', getAllAttendances)
 
 // Functions
 
-// Get a player by name from API
+// Creates a new attendance in the database based on the html form
 
-function findPlayer(e) {
+function createAttendance(e) {
   e.preventDefault()
-  searchedPlayerContainer.innerHTML = ''
-  let playerNameValue = playerNameInput.value
-  playerNameValue = playerNameValue.replace(/\s/g,'_') // Replace spaces with underscores in name
-  fetch(`${APIURL}/players/name/${playerNameValue}`)
+  const newAttendance = {
+    tournament: tournamentAttended,
+    dateAttended: dateAttended.value,
+    pricePaid: pricePaid.value
+  }
+  fetch(`${APIURL}/attendances`,{
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json',
+    'Authorization': `Bearer ${getAccessToken()}`},
+    body: JSON.stringify(newAttendance) })
     .then(res => res.json())
-    .then(player => {
-      const newPlayerUl = document.createElement('ul')
-      newPlayerUl.classList.add('searched-player-ul')
-      Object.keys(player).forEach(key => {
-        const fields = ['fullName', 'age', 'nationality', 'worldRanking', 'lifetimeEarnings']
-        if (fields.includes(key)) {
-          const newPlayerFieldLi = document.createElement('li')
-          newPlayerFieldLi.classList.add('player-field-li')
-          newPlayerFieldLi.textContent = `${key}: ${player[key]}`
-          newPlayerUl.appendChild(newPlayerFieldLi)
-        }
+    .then(data => {
+      console.log(data)
+    })
+  pricePaid.value = ''
+  dateAttended.value = ''
+}
+
+// Load player names into options for the playerId dropdown
+
+function loadTournamentNamesAttendance() {
+  fetch(`${APIURL}/tournaments`, {
+    method: 'GET',
+    headers:  {'Authorization': `Bearer ${getAccessToken()}`}
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (!data.length > 0) return
+      data.forEach(tournament => {
+        const newOption = document.createElement('option')
+        newOption.classList.add('tournament-name-option')
+        newOption.value = tournament.name
+        newOption.textContent = tournament.name
+        this.appendChild(newOption)
       })
-      searchedPlayerContainer.appendChild(newPlayerUl)
+    })
+  this.removeEventListener('click', loadTournamentNamesAttendance)
+}
+
+// Caches the Id of the tournament attended for use in form submission
+
+function storeTournamentIdAttendance(e) {
+  const name = e.target.value
+  fetch(`${APIURL}/tournaments/name/${name}`, {
+    method: 'GET',
+    headers:  {'Authorization': `Bearer ${getAccessToken()}`}
+  })
+    .then(res => res.json())
+    .then(tournament => {
+      tournamentAttended = tournament._id
     })
 }
 
 // Get all Attendances from API
 
-function getAllPlayers() {
-  playersDiv1.innerHTML = ''
+function getAllAttendances() {
+  attendanceDiv1.innerHTML = ''
   fetch(`${APIURL}/attendances`, {
     method: 'GET',
     headers:  {'Authorization': `Bearer ${getAccessToken()}`}
@@ -54,20 +89,25 @@ function getAllPlayers() {
     .then(res => res.json())
     .then(data => {
       if (!data.length > 0) return
-      data.forEach(player => {
-        const columnCount = 3
-        const newPlayerUl = document.createElement('ul')
-        newPlayerUl.classList.add('player-ul')
-        Object.keys(player).forEach(key => {
-          const fields = ['fullName', 'age', 'nationality', 'worldRanking', 'lifetimeEarnings']
+      data.forEach(attendance => {
+        const newAttendanceUl = document.createElement('ul')
+        newAttendanceUl.classList.add('attendance-ul')
+        Object.keys(attendance).forEach(key => {
+          const fields = ['tournament', 'pricePaid', 'dateAttended']
           if (fields.includes(key)) {
-            const newPlayerFieldLi = document.createElement('li')
-            newPlayerFieldLi.classList.add('player-field-li')
-            newPlayerFieldLi.textContent = `${key}: ${player[key]}`
-            newPlayerUl.appendChild(newPlayerFieldLi)
+            const newAttendanceLi = document.createElement('li')
+            newAttendanceLi.classList.add('attendance-field-li')
+            if (key === 'tournament') {
+              newAttendanceLi.textContent = `${key}: ${attendance[key].name}`
+            } else if (key === 'dateAttended') {
+              newAttendanceLi.textContent = `${key}: ${attendance[key].split('T')[0]}`
+            } else {
+              newAttendanceLi.textContent = `${key}: ${attendance[key]}`
+            }
+            newAttendanceUl.appendChild(newAttendanceLi)
           }
         })
-        playersDiv1.appendChild(newPlayerUl)
+        attendanceDiv1.appendChild(newAttendanceUl)
       })
     })
 }
