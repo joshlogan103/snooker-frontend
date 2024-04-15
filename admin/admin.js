@@ -136,8 +136,8 @@ function createPlayer(e) {
 
 function createTournament(e) {
   e.preventDefault()
-  const positions = positionsTournamentInput.value.split(', ')
-  const prizeBreakdown = prizeBreakdownTournamentInput.value.split(', ')
+  const positions = positionsTournamentInput.value.split(',')
+  const prizeBreakdown = prizeBreakdownTournamentInput.value.split(',')
   const newTournament = {
     name: nameTournamentInput.value,
     prizeMoney: prizeMoneyTournamentInput.value,
@@ -206,8 +206,8 @@ function updatePlayer(e) {
 function updateTournament(e) {
   e.preventDefault()
   const tournamentId = idTournamentUpdateInput.value
-  const positions = positionsTournamentUpdateInput.value.split(', ')
-  const prizeBreakdown = prizeBreakdownTournamentUpdateInput.value.split(', ').map(prize => parseFloat(prize))
+  const positions = positionsTournamentUpdateInput.value.split(',')
+  const prizeBreakdown = prizeBreakdownTournamentUpdateInput.value.split(',').map(prize => parseFloat(prize))
   const updatedTournament = {}
   const location = {}
   const leaderboard = {}
