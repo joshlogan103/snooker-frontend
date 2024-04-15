@@ -370,7 +370,7 @@ function loadTournamentNames() {
 
 function populateUpdateTournamentDetails(e) {
   const name = e.target.value
-  fetch(`${APIURL}/tournament/name/${name}`, {
+  fetch(`${APIURL}/tournaments/name/${name}`, {
     method: 'GET',
     headers:  {'Authorization': `Bearer ${getAccessToken()}`}
   })
@@ -391,11 +391,11 @@ function populateUpdateTournamentDetails(e) {
       prizeMoneyTournamentUpdateInput.value = tournament.prizeMoney
       startDateTournamentUpdateInput.value = tournament.startDate
       endDateTournamentUpdateInput.value = tournament.endDate
-      countryTournamentUpdateInput.value = tournament.country
-      cityTournamentUpdateInput.value = tournament.city
-      venueNameTournamentUpdateInput.value = tournament.venueName
-      positionsTournamentUpdateInput.value = tournament.positions
-      prizeBreakdownTournamentUpdateInput.value = tournament.prizeMoneyBreakdown
+      countryTournamentUpdateInput.value = tournament.location.country
+      cityTournamentUpdateInput.value = tournament.location.city
+      venueNameTournamentUpdateInput.value = tournament.location.venueName
+      positionsTournamentUpdateInput.value = tournament.leaderboard.positions
+      prizeBreakdownTournamentUpdateInput.value = tournament.leaderboard.prizeMoneyBreakdown
     })
 }
 
@@ -403,13 +403,13 @@ function populateUpdateTournamentDetails(e) {
 
 function populateDeleteTournamentId(e) {
   const name = e.target.value
-  fetch(`${APIURL}/tournament/name/${name}`, {
+  fetch(`${APIURL}/tournaments/name/${name}`, {
     method: 'GET',
     headers:  {'Authorization': `Bearer ${getAccessToken()}`}
   })
     .then(res => res.json())
     .then(tournament => {
       idTournamentDeleteInput.value = ''
-      idPlayerDeleteInput.value = tournament._id
+      idTournamentDeleteInput.value = tournament._id
     })
 }
